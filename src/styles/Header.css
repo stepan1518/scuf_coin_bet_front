@@ -1,0 +1,39 @@
+/* Шапка сайта */
+header {
+    background-color: #121212; /* Темный фон */
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Подсветка */
+  }
+  
+  header .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #6a5acd; /* Фиолетовый */
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  
+  header .logo:hover {
+    transform: scale(1.1);
+    color: #8a2be2; /* Фиолетовый с оттенком */
+  }
+  
+  header nav {
+    display: flex;
+    gap: 15px;
+  }
+  
+  header nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  
+  header nav a:hover {
+    color: #6a5acd; /* Фиолетовый */
+    transform: scale(1.1);
+  }

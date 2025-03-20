@@ -1,0 +1,12 @@
+/* Футер */
+footer {
+    background-color: #121212; /* Темный фон */
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.3); /* Подсветка */
+  }
+  
+  footer p {
+    margin: 0;
+  }

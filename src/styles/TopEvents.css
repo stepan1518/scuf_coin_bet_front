@@ -1,0 +1,155 @@
+/* Секция с топовыми событиями */
+.top-events {
+    padding: 50px 20px;
+    background-color: #0a0a0a; /* Очень темный фон */
+    text-align: center;
+  }
+  
+  .top-events h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: #6a5acd; /* Фиолетовый */
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  .slider {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Подсветка */
+  }
+  
+  .slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    position: relative;
+  }
+  
+  .slide img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    opacity: 0.5; /* Затемнение изображения */
+  }
+  
+  .slide-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+  }
+  
+  .teams {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+  }
+  
+  .team {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .team:hover {
+    transform: scale(1.1);
+  }
+  
+  .team-logo {
+    width: 120px;
+    height: 120px;
+    background-color: #6a5acd; /* Фиолетовый */
+    border-radius: 50%;
+    margin-bottom: 20px;
+    box-shadow: 0 0 20px rgba(106, 90, 205, 0.7); /* Подсветка */
+    transition: transform 0.3s ease;
+  }
+  
+  .team-logo:hover {
+    transform: scale(1.1);
+  }
+  
+  .team-name {
+    font-size: 36px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(106, 90, 205, 0.7); /* Подсветка */
+  }
+  
+  .coefficients {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .coefficient {
+    background-color: rgba(72, 61, 139, 0.8); /* Темно-синий с прозрачностью */
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    box-shadow: 0 0 10px rgba(106, 90, 205, 0.7); /* Подсветка */
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .coefficient:hover {
+    transform: scale(1.1);
+  }
+  
+  .coefficient .name {
+    font-size: 18px;
+  }
+  
+  .coefficient .current {
+    font-size: 24px;
+    color: #6a5acd; /* Фиолетовый */
+  }
+  
+  .coefficient .old {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    font-size: 14px;
+    color: #ccc;
+    text-decoration: line-through;
+    transform: rotate(-10deg);
+  }
+  
+  .slider-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .slider-controls .dot {
+    width: 10px;
+    height: 10px;
+    background-color: #483d8b; /* Темно-синий */
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .slider-controls .dot.active {
+    background-color: #6a5acd; /* Фиолетовый */
+  }

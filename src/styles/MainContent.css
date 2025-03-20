@@ -1,0 +1,37 @@
+/* Основной контент */
+.main-content {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px 20px;
+    background-color: #121212; /* Темный фон */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Подсветка */
+    flex-wrap: wrap;
+  }
+  
+  .main-content .card {
+    background-color: #1e1e1e; /* Темный фон */
+    border: 1px solid #483d8b; /* Темно-синий */
+    border-radius: 10px;
+    padding: 20px;
+    width: 30%;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(106, 90, 205, 0.7); /* Подсветка */
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .main-content .card:hover {
+    transform: scale(1.05);
+  }
+  
+  .main-content .card h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #6a5acd; /* Фиолетовый */
+  }
+  
+  .main-content .card p {
+    font-size: 16px;
+    color: #ccc;
+  }
