@@ -1,75 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { getAllEvents } from '../api_client/events';
+
 import "../styles/PopularEvents.css";
 
 const PopularEvents = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  const slides = [
-    [
-      {
-        teams: [
-          { name: "Реал Мадрид", logo: "#" },
-          { name: "Барселона", logo: "#" },
-        ],
-        coefficients: [
-          { name: "П1", current: "2.5", old: "2.2" },
-          { name: "П2", current: "3.3", old: "3.0" },
-        ],
-      },
-      {
-        teams: [
-          { name: "Манчестер Сити", logo: "#" },
-          { name: "Ливерпуль", logo: "#" },
-        ],
-        coefficients: [
-          { name: "П1", current: "2.0", old: "1.8" },
-          { name: "П2", current: "2.8", old: "2.5" },
-        ],
-      },
-      {
-        teams: [
-          { name: "Челси", logo: "#" },
-          { name: "Арсенал", logo: "#" },
-        ],
-        coefficients: [
-          { name: "П1", current: "2.1", old: "1.9" },
-          { name: "П2", current: "3.0", old: "2.7" },
-        ],
-      },
-    ],
-    [
-      {
-        teams: [
-          { name: "Бавария", logo: "#" },
-          { name: "Боруссия", logo: "#" },
-        ],
-        coefficients: [
-          { name: "П1", current: "1.8", old: "1.6" },
-          { name: "П2", current: "2.5", old: "2.3" },
-        ],
-      },
-      {
-        teams: [
-          { name: "ПСЖ", logo: "#" },
-          { name: "Лион", logo: "#" },
-        ],
-        coefficients: [
-          { name: "П1", current: "1.7", old: "1.5" },
-          { name: "П2", current: "2.4", old: "2.2" },
-        ],
-      },
-      {
-        teams: [
-          { name: "Ювентус", logo: "#" },
-          { name: "Милан", logo: "#" },
-        ],
-        coefficients: [
-          { name: "П1", current: "2.0", old: "1.8" },
-          { name: "П2", current: "2.7", old: "2.5" },
-        ],
-      },
-    ],
-  ];
+  const [slides, setSlides] = useState([]);
+
+  useEffect(() => {
+    getAllEvents()
+    .then(resp => {      
+      const chunkSize = 3;
+
+      const new_slides = Array.from(
+        { length: Math.ceil(resp.data.length / chunkSize) },
+        (_, i) => resp.data.slice(i * chunkSize, (i + 1) * chunkSize)
+      );
+      setSlides(new_slides);
+    })
+    .catch(err => console.log(err))
+  }, [])
 
   return (
     <section className="popular-events">
@@ -83,6 +34,7 @@ const PopularEvents = () => {
             <div className="popular-slide" key={index}>
               {slide.map((event, i) => (
                 <div className="event" key={i}>
+                  <h2>{event.name}</h2>
                   <div className="teams">
                     {event.teams.map((team, j) => (
                       <div className="team" key={j}>
@@ -91,7 +43,7 @@ const PopularEvents = () => {
                       </div>
                     ))}
                   </div>
-                  <div className="coefficients">
+                  {/* <div className="coefficients">
                     {event.coefficients.map((coeff, j) => (
                       <div className="coefficient" key={j}>
                         <div className="name">{coeff.name}</div>
@@ -99,7 +51,7 @@ const PopularEvents = () => {
                         <div className="old">{coeff.old}</div>
                       </div>
                     ))}
-                  </div>
+                  </div> */}
                 </div>
               ))}
             </div>
