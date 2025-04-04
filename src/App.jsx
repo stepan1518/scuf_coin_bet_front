@@ -5,7 +5,7 @@ import './App.css'
 
 import Header from "./components/Header.jsx";
 import Banner from "./components/Banner.jsx";
-import TopEvents from "./components/TopEvents.jsx";
+import TopEvents from "./components/SuperEvents.jsx";
 import PopularEvents from "./components/PopularEvents.jsx";
 import MainContent from "./components/MainContent.jsx";
 import Footer from "./components/Footer.jsx";

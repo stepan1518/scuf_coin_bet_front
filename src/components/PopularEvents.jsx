@@ -13,6 +13,14 @@ const PopularEvents = () => {
     .then(resp => {      
       const chunkSize = 3;
 
+      resp.data = resp.data.map(event => {
+        if (event.superIssue == null)
+          event.superIssue = {'issueResults' : []}
+        event.superIssue.issueResults = event.superIssue.issueResults.sort((a, b) => b.orderWeight - a.orderWeight);
+
+        return event;
+      })
+
       const new_slides = Array.from(
         { length: Math.ceil(resp.data.length / chunkSize) },
         (_, i) => resp.data.slice(i * chunkSize, (i + 1) * chunkSize)
@@ -43,15 +51,16 @@ const PopularEvents = () => {
                       </div>
                     ))}
                   </div>
-                  {/* <div className="coefficients">
-                    {event.coefficients.map((coeff, j) => (
+                  <h3>{ event.superIssue.issueTemplate.name }</h3>
+                  <div className="coefficients">
+                    {event.superIssue.issueResults.map((coeff, j) => (
                       <div className="coefficient" key={j}>
-                        <div className="name">{coeff.name}</div>
-                        <div className="current">{coeff.current}</div>
-                        <div className="old">{coeff.old}</div>
+                        <div className="name">{coeff.issueResultTemplate.name}</div>
+                        <div className="current">{coeff.rate}</div>
+                        {coeff.oldRate != null && <div className="old">{coeff.oldRate}</div>}
                       </div>
                     ))}
-                  </div> */}
+                  </div>
                 </div>
               ))}
             </div>

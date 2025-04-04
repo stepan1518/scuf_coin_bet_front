@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../styles/TopEvents.css";
+import "../styles/SuperEvents.css";
 
 const TopEvents = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
