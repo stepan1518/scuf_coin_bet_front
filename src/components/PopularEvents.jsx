@@ -51,11 +51,11 @@ const PopularEvents = () => {
                       </div>
                     ))}
                   </div>
-                  <h3>{ event.superIssue.issueTemplate.name }</h3>
+                  <h3>{ event.superIssue.name }</h3>
                   <div className="coefficients">
                     {event.superIssue.issueResults.map((coeff, j) => (
                       <div className="coefficient" key={j}>
-                        <div className="name">{coeff.issueResultTemplate.name}</div>
+                        <div className="name">{coeff.name}</div>
                         <div className="current">{coeff.rate}</div>
                         {coeff.oldRate != null && <div className="old">{coeff.oldRate}</div>}
                       </div>
